@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Validation Page</title>
+</head>
+<body>
+	<form action="LoginServlet" method="post">
+        <label for="username">UserName:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+    <div id="error" style="color: red;">
+        <c:if test="${not empty errorMessage}">
+            ${errorMessage}
+        </c:if>
+    </div>
+</body>
+</html>

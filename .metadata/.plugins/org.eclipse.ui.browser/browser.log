@@ -1,0 +1,19 @@
+
+Aug 02, 2024 24:31:44.651 NEW SESSION
+Aug 02, 2024 24:31:44.651 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 02, 2024 24:32:19.311 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 02, 2024 24:32:42.610 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 02, 2024 24:33:52.511 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 02, 2024 24:34:06.870 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 02, 2024 24:34:34.514 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+Aug 07, 2024 11:50:03.542 NEW SESSION
+Aug 07, 2024 11:50:03.542 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 07, 2024 11:55:48.568 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 07, 2024 11:55:56.676 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 07, 2024 11:56:03.274 Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#58 is a dynamic-sized tensor).
+Aug 07, 2024 12:02:38.802 Created TensorFlow Lite XNNPACK delegate for CPU.
+Aug 07, 2024 12:03:11.859 Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#58 is a dynamic-sized tensor).
+Aug 07, 2024 12:48:45.557 [12340:10200:0807/124845.556:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+Aug 07, 2024 13:10:16.678 [12340:10200:0807/131016.676:ERROR:connection_factory_impl.cc(483)] ConnectionHandler failed with net error: -2
+Aug 07, 2024 13:16:52.754 [12340:14680:0807/131652.752:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost

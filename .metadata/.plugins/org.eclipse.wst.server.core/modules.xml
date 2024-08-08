@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:LoginPage" serverId="apache-tomcat-9.0.46 at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:ValidationForm" serverId="apache-tomcat-9.0.46 at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:VisitCounter" serverId="apache-tomcat-9.0.46 at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:SessionTracker" serverId="apache-tomcat-9.0.46 at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:CalculatorApp" serverId="apache-tomcat-9.0.46 at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:WelcomeServ" serverId="apache-tomcat-9.0.46 at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:prog" serverId="apache-tomcat-9.0.46 at localhost"/>
+</modules>
