@@ -107,7 +107,6 @@
     <div class="login-container">
         <h2>Login</h2>
 
-        <!-- Display error message if login fails -->
         <%
             String errorMessage = (String) request.getAttribute("errorMessage");
             if (errorMessage != null) {
