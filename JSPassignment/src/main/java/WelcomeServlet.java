@@ -21,7 +21,7 @@ public class WelcomeServlet extends HttpServlet {
             request.getSession().setAttribute("username", username);
             response.sendRedirect("welcome.jsp");
         } else {
-            request.setAttribute("errorMessage", "Invalid login credentials or CAPTCHA!");
+            request.setAttribute("errorMessage", "Invalid login credentials or captcha!");
             request.getRequestDispatcher("LoginCaptcha.jsp").forward(request, response);
         }
     }
