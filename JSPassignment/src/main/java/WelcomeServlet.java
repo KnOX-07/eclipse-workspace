@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,14 +15,14 @@ public class WelcomeServlet extends HttpServlet {
         String password = request.getParameter("password");
         String captchaInput = request.getParameter("captchaInput");
 
-       String captcha = (String) request.getSession().getAttribute("captcha");
+        String captcha = (String) request.getSession().getAttribute("captcha");
 
         if (username.equals("admin") && password.equals("password") && captcha.equals(captchaInput)) {
-        	request.getSession().setAttribute("username", username);
+            request.getSession().setAttribute("username", username);
             response.sendRedirect("welcome.jsp");
         } else {
-        	PrintWriter out = response.getWriter();
-        	out.println("<h2>Incorrect captcha!</h2>");
+            request.setAttribute("errorMessage", "Invalid login credentials or captcha!");
+            request.getRequestDispatcher("LoginCaptcha.jsp").forward(request, response);
         }
     }
 }

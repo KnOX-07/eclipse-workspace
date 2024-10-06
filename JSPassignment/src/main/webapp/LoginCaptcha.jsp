@@ -36,26 +36,103 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>LoginCaptcha</title>
+<title>LoginCAPTCHA</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .login-container {
+        width: 100%;
+        max-width: 400px;
+        margin: 50px auto;
+        background-color: white;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        padding: 20px;
+        border-radius: 10px;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: inline-block;
+    }
+    input[type="text"], input[type="password"] {
+        width: calc(100% - 10px);
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .captcha-box {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #007BFF;
+        border: 2px solid #007BFF;
+        padding: 7px;
+        background-color: #f0f8ff;
+        border-radius: 5px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        width: 120px;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    .error {
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
 </head>
 <body>
-	<h2>Login Page</h2>
-    <form action="WelcomeServlet" method="post">
-        <label for="username">UserName:</label>
-        <input type="text" id="username" name="username" required><br><br>
+    <div class="login-container">
+        <h2>Login</h2>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+        <%
+            String errorMessage = (String) request.getAttribute("errorMessage");
+            if (errorMessage != null) {
+        %>
+            <div class="error"><%= errorMessage %></div>
+        <%
+            }
+        %>
 
-        <label for="captcha">Your Captcha:</label><br>
-        <p style="font-size: 20px; font-weight: bold;">
-            <%= captcha.toString() %>
-        </p><br>
+        <form action="WelcomeServlet" method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
 
-        <label for="captchaInput">Enter Captcha:</label>
-        <input type="text" id="captchaInput" name="captchaInput" required><br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
 
-        <input type="submit" value="Login" style="background-color: cyan;">
-    </form>
+            <label for="captcha">Your Captcha</label>
+            <div class="captcha-box">
+                <%= captcha.toString() %>
+            </div>
+
+            <label for="captchaInput">Enter Captcha</label>
+            <input type="text" id="captchaInput" name="captchaInput" required>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
 </body>
 </html>
