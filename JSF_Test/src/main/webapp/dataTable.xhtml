@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Product DataTable</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; 
+        }
+
+        .edit-form {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 50%;
+            background-color: #ffffff; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+
+        input {
+            width: 100%;
+            padding: 3px;
+            margin: 4px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px; 
+        }
+
+        input:focus {
+            border-color: #4CAF50; 
+            outline: none; 
+        }
+
+        .save-btn {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px; 
+            transition: background-color 0.3s; 
+        }
+
+        .save-btn:hover {
+            background-color: #45a049; 
+        }
+
+        .save-btn:active {
+            background-color: #3e8e41;
+        }
+    </style>
+</h:head>
+<h:body>
+    <h:form>
+        <h:dataTable value="#{productBean.productList}" var="product" border="1">
+            <h:column>
+                <f:facet name="header">Order No</f:facet>
+                #{product.orderNo}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Product Name</f:facet>
+                #{product.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{product.price}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Quantity</f:facet>
+                #{product.quantity}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <h:commandLink value="Edit" action="#{productBean.editProduct(product)}" />
+            </h:column>
+        </h:dataTable>
+
+        <h:panelGrid class="edit-form" rendered="#{productBean.selectedProduct != null}" columns="2">
+            <h:outputText value="Order No: " />
+            <h:outputText value="#{productBean.selectedProduct.orderNo}" />
+
+            <h:outputLabel value="Product Name:" for="name" />
+            <h:inputText id="name" value="#{productBean.selectedProduct.name}" />
+
+            <h:outputLabel value="Price:" for="price" />
+            <h:inputText id="price" value="#{productBean.selectedProduct.price}" />
+
+            <h:outputLabel value="Quantity:" for="quantity" />
+            <h:inputText id="quantity" value="#{productBean.selectedProduct.quantity}" />
+
+            <h:commandButton value="Save Changes" action="#{productBean.saveChanges}" styleClass="save-btn" />
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>

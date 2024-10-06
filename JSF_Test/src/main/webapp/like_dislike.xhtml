@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Like and Dislike Button</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;  
+            align-items: center;     
+            height: 100vh;          
+        }
+        .button-container {
+            display: flex;           
+            justify-content: center; 
+            margin-top: 20px;       
+        }
+        .button-wrapper {
+            text-align: center;      
+            margin: 0 20px;        
+        }
+        .button {
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .counter {
+            font-size: 18px;
+            margin-top: 10px;       
+        }
+        .like {
+            color: blue;
+        }
+        .dislike {
+            color: red;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="button-container">
+    
+        <div class="button-wrapper">
+            <h:form>
+                <h:commandButton value="Like" action="#{likeDislikeBean.incrementLike}" styleClass="button like" /><br></br>
+                <span class="counter like">#{likeDislikeBean.likeCount}</span>
+            </h:form>
+        </div>
+
+        <div class="button-wrapper">
+            <h:form>
+                <h:commandButton value="Dislike" action="#{likeDislikeBean.incrementDislike}" styleClass="button dislike" /><br></br>
+                <span class="counter dislike">#{likeDislikeBean.dislikeCount}</span>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>

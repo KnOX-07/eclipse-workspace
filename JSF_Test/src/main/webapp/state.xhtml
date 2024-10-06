@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>State and Language Display</title>
+    <style>
+        body {
+            background-color: yellow;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <h3>Select Your State:</h3>
+    
+    <h:form>
+        <h:selectOneMenu value="#{stateBean.selectedState}" valueChangeListener="#{stateBean.stateChanged}" onchange="submit()">
+            <f:selectItem itemLabel="Select your state" itemValue="" />
+            <f:selectItem itemLabel="Karnataka" itemValue="Karnataka" />
+            <f:selectItem itemLabel="Maharashtra" itemValue="Maharashtra" />
+            <f:selectItem itemLabel="Tamil Nadu" itemValue="Tamil Nadu" />
+            <f:selectItem itemLabel="Kerala" itemValue="Kerala" />
+            <f:selectItem itemLabel="West Bengal" itemValue="West Bengal" />
+        </h:selectOneMenu><br></br><br></br>
+
+        <h:outputText value="Your language is: #{stateBean.language}" />
+    </h:form>
+</h:body>
+</html>
