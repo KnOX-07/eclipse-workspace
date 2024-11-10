@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>File Retrieval</title>
+</head>
+<body>
+	<h1>Retrieve Data from an XML File Using AJAX</h1>
+  <button onclick="loadXML()">Load XML</button>
+  <div id="result"></div>
+
+  <script>
+    function loadXML() {
+      const xhr = new XMLHttpRequest();
+      
+      xhr.open("GET", "data.xml", true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            displayXMLData(xhr.responseXML);
+          } else {
+            document.getElementById("result").innerText = "Error loading XML file!";
+          }
+        }
+      };
+      xhr.send();
+    }
+
+    function displayXMLData(xml) {
+      const employees = xml.getElementsByTagName("employee");
+      let output = "<h2>Employee List</h2><ul>";
+
+      for (let i = 0; i < employees.length; i++) {
+        const name = employees[i].getElementsByTagName("name")[0].textContent;
+        const position = employees[i].getElementsByTagName("position")[0].textContent;
+        output += `<li><strong>Name:</strong> ${name} - <strong>Position:</strong> ${position}</li>`;
+      }
+
+      output += "</ul>";
+      document.getElementById("result").innerHTML = output;
+    }
+  </script>
+</body>
+</html>

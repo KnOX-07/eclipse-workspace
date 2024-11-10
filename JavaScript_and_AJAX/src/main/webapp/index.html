@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>File Retrieval</title>
+</head>
+<body>
+  <h1>Retrieve Data from a TXT File Using AJAX</h1>
+  <button onclick="loadText()">Load File</button>
+  <p id="result"></p>
+
+  <script>
+    function loadText() {
+      const xhr = new XMLHttpRequest();
+      
+      xhr.open("GET", "data.txt", true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            document.getElementById("result").innerText = xhr.responseText;
+          } else {
+            document.getElementById("result").innerText = "Error loading file!";
+          }
+        }
+      };
+      xhr.send();
+    }
+  </script>
+</body>
+</html>

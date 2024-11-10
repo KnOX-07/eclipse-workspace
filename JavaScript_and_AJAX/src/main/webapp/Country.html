@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Country Capitals</title>
+<style>
+	#capital {
+      color: #1a73e8;
+      font-weight: bold;
+      font-size: 1.5em;
+      margin-left: 10px;
+      display: inline-block;
+    }
+</style>
+</head>
+<body>
+  <h1>Select a Country to see it's Capital</h1>
+  <label for="countrySelect">Choose a country:</label>
+  <select id="countrySelect" onchange="displayCapital()">
+    <option value="">-- Select a Country --</option>
+    <option value="USA">United States</option>
+    <option value="Canada">Canada</option>
+    <option value="France">France</option>
+    <option value="Japan">Japan</option>
+    <option value="Brazil">Brazil</option>
+  </select><br></br>
+  <span id="capital"></span>
+
+  <script>
+    function displayCapital() {
+      const capitalElement = document.getElementById("capital");
+      const country = document.getElementById("countrySelect").value;
+
+      const capitals = {
+        "USA": "Washington, D.C.",
+        "Canada": "Ottawa",
+        "France": "Paris",
+        "Japan": "Tokyo",
+        "Brazil": "Brasília"
+      };
+      
+      if (capitals[country]) {
+          capitalElement.innerText = capitals[country];
+          capitalElement.style.display = "inline-block";
+        } else {
+          capitalElement.innerText = "";
+        }
+    }
+  </script>
+</body>
+</html>
